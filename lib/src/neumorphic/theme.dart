@@ -367,8 +367,7 @@ class NeuBasedCupertinoTheme extends CupertinoThemeData {
     CupertinoTextThemeData textTheme,
     Color barBackgroundColor,
     Color scaffoldBackgroundColor,
-  }) {
-    return NeuBasedCupertinoTheme._(
+  }) => NeuBasedCupertinoTheme._(
       _neuThemeData,
       _cupertinoOverrideTheme.copyWith(
         brightness: brightness,
@@ -379,15 +378,10 @@ class NeuBasedCupertinoTheme extends CupertinoThemeData {
         scaffoldBackgroundColor: scaffoldBackgroundColor,
       ),
     );
-  }
 
   @override
-  CupertinoThemeData resolveFrom(BuildContext context, {bool nullOk = false}) {
-    // Only the cupertino override theme part will be resolved.
-    // If the color comes from the material theme it's not resolved.
-    return NeuBasedCupertinoTheme._(
+  CupertinoThemeData resolveFrom(BuildContext context) => NeuBasedCupertinoTheme._(
       _neuThemeData,
-      _cupertinoOverrideTheme.resolveFrom(context, nullOk: nullOk),
+      _cupertinoOverrideTheme.resolveFrom(context),
     );
-  }
 }
