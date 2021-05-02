@@ -3,7 +3,7 @@
 // found in the LICENSE file.
 
 import 'package:flutter/cupertino.dart'
-    show CupertinoTextThemeData, CupertinoTheme, CupertinoThemeData;
+    show CupertinoTextThemeData, CupertinoTheme, CupertinoThemeData, NoDefaultCupertinoThemeData;
 import 'package:flutter/foundation.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter/material.dart'
@@ -306,9 +306,8 @@ class NeuBasedCupertinoTheme extends CupertinoThemeData {
     @required NeuThemeData materialTheme,
   }) : this._(
           materialTheme,
-          (materialTheme.cupertinoOverrideTheme ?? const CupertinoThemeData())
-              .noDefault(),
-        );
+          (materialTheme.cupertinoOverrideTheme ?? const CupertinoThemeData()).noDefault(),
+  );
 
   NeuBasedCupertinoTheme._(
     this._neuThemeData,
@@ -328,7 +327,7 @@ class NeuBasedCupertinoTheme extends CupertinoThemeData {
         );
 
   final NeuThemeData _neuThemeData;
-  final CupertinoThemeData _cupertinoOverrideTheme;
+  final NoDefaultCupertinoThemeData _cupertinoOverrideTheme;
 
   @override
   Brightness get brightness =>
